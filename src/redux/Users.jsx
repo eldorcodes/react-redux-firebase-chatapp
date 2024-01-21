@@ -1,4 +1,4 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 const usersSlice = createSlice({
     name:'Users',
@@ -7,8 +7,15 @@ const usersSlice = createSlice({
         date:new Date().toString()
     },
     reducers:{
-        sendMessage:(state) => {
-            state.messages.push({ sender:'Adam',receiver:'John',message:'Hello',date:new Date().toString() });
+        sendMessage:(state,action:PayloadAction<object>) => {
+            console.log('action',action);
+            console.log('state',state);
+            switch(action.type){
+                case 'Users/sendMessage':
+                    state.messages.push(action.payload);
+                    break;
+                    default: console.log(state.messages);
+            }
         },
         getMessages:(state) => {
             console.log(state.messages);
