@@ -8,7 +8,7 @@ const usersSlice = createSlice({
     },
     reducers:{
         sendMessage:(state) => {
-            state.messages.push({ sender:'Adam',receiver:'John',message:'Hello' });
+            state.messages.push({ sender:'Adam',receiver:'John',message:'Hello',date:new Date().toString() });
         },
         getMessages:(state) => {
             console.log(state.messages);
@@ -16,7 +16,7 @@ const usersSlice = createSlice({
         updateMessage:(state) => {
             let filtered = state.messages.filter(message => message.sender == 'Adam');
                     state.messages = filtered;
-                   state.messages.push({ sender:'Adam', receiver:'John',message:'Good morning' });
+                   state.messages.push({ sender:'Adam', receiver:'John',message:'Good morning',date:new Date().toString()});
         },
         deleteMessage:(state) => {
             state.messages = state.messages.filter(message => message.sender == 'Adam');

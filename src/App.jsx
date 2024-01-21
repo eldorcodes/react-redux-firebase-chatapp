@@ -24,6 +24,7 @@ function App() {
           <div key={index}>
             <p>{message.sender}: {message.message}</p>
             <p>{message.receiver}: {message.message}</p>
+            <p>{message.date}</p>
           </div>
         ))
        }
